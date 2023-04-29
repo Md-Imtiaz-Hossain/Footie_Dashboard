@@ -4,7 +4,7 @@ plugins {
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
+    // Use Maven Central for resolving dependencies. s
     mavenCentral()
 }
 
