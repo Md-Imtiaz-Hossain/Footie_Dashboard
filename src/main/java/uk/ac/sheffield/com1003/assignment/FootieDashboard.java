@@ -10,7 +10,7 @@ import uk.ac.sheffield.com1003.assignment.codeprovided.gui.PlayerEntryDashboard;
 import uk.ac.sheffield.com1003.assignment.gui.PlayerDashboardPanel;
 
 /**
- * Main class to run the Assignment's graphical user interface
+ * Main class to run the Assignment's graphical user interface for FootieDashboard(new)
  *
  * @version 1.1  09/03/2023
  *

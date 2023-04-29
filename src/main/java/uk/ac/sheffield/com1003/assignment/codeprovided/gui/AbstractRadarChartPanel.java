@@ -21,7 +21,6 @@ public class AbstractRadarChartPanel extends JPanel {
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private final AbstractPlayerDashboardPanel parentPanel;
     private final AbstractRadarChart radarChart;
-
     public AbstractRadarChartPanel(AbstractPlayerDashboardPanel parentPanel, AbstractRadarChart radarChart) {
         super();
         this.parentPanel = parentPanel;

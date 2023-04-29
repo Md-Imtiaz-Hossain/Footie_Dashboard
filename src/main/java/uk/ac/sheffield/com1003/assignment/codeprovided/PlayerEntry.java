@@ -13,7 +13,6 @@ import java.util.Iterator;
  * Copyright (c) University of Sheffield 2023
  */
 public class PlayerEntry {
-
     private final int id;
     private final League leagueType;
 

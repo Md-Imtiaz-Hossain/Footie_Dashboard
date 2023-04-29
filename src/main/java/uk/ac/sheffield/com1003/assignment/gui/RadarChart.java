@@ -12,42 +12,48 @@ import java.util.*;
  * SKELETON IMPLEMENTATION
  */
 
-public class RadarChart extends AbstractRadarChart
-{
-    public RadarChart(AbstractPlayerCatalog playerCatalog, List<PlayerEntry> filteredPlayerEntriesList,
-                      List<PlayerProperty> playerRadarChartProperties)
-    {
+public class RadarChart extends AbstractRadarChart {
+    public RadarChart(AbstractPlayerCatalog playerCatalog, List<PlayerEntry> filteredPlayerEntriesList, List<PlayerProperty> playerRadarChartProperties) {
         super(playerCatalog, filteredPlayerEntriesList, playerRadarChartProperties);
     }
 
     @Override
-    public void updateRadarChartContents(List<PlayerProperty> radarChartPlayerProperties,
-                                         List<PlayerEntry> filteredPlayerEntriesList) {
-        // TODO implement
-
+    public void updateRadarChartContents(List<PlayerProperty> radarChartPlayerProperties, List<PlayerEntry> filteredPlayerEntriesList) {
+        radarAxesValues.clear();
+        filteredPlayerEntries = filteredPlayerEntriesList;
+        playerRadarChartProperties = radarChartPlayerProperties;
+        if (filteredPlayerEntriesList.size() < 1) return;
+        for (PlayerProperty playerProperty : radarChartPlayerProperties) {
+            double min = playerCatalog.getMinimumValue(playerProperty, filteredPlayerEntriesList);
+            double max = playerCatalog.getMaximumValue(playerProperty, filteredPlayerEntriesList);
+            double avg = playerCatalog.getMeanAverageValue(playerProperty, filteredPlayerEntriesList);
+            radarAxesValues.put(playerProperty, new RadarAxisValues(min, max, avg));
+        }
     }
 
     @Override
     public List<PlayerProperty> getPlayerRadarChartProperties() throws NoSuchElementException {
-        // TODO implement
-        return null;
+        return playerRadarChartProperties;
     }
 
     @Override
     public Map<PlayerProperty, RadarAxisValues> getRadarPlotAxesValues() throws NoSuchElementException {
-        // TODO implement
-        return null;
+        Map<PlayerProperty, RadarAxisValues> plotValues = new HashMap<>();
+        for (PlayerProperty playerProperty : playerRadarChartProperties) {
+            if (radarAxesValues.get(playerProperty) == null) continue;
+            plotValues.put(playerProperty, radarAxesValues.get(playerProperty));
+        }
+        return plotValues;
     }
 
     @Override
     public AbstractPlayerCatalog getPlayerCatalog() {
-        return null;
+        return playerCatalog;
     }
 
     @Override
     public List<PlayerEntry> getFilteredPlayerEntries() {
-        // TODO implement
-        return null;
+        return filteredPlayerEntries;
     }
 
 }

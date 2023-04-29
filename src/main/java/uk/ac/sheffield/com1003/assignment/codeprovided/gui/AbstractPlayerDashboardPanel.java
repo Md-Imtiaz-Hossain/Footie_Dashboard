@@ -20,15 +20,14 @@ import java.util.stream.Collectors;
  * Class that provides a basic implementation of the main elements in the GUI as discussed in the handout.
  * Please consider the methods that need to be implemented by overriding, including the method described in the
  * note at the end of this class.
- *
+ * <p>
  * Should be implemented as uk.ac.sheffield.assignment2021.gui.PlayerDashboardPanel
- *
- * @version 1.1 09/02/2023
  *
  * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
  * @author Ben Clegg
- *
+ * <p>
  * Copyright (c) University of Sheffield 2023
+ * @version 1.1 09/02/2023
  */
 
 // constructor
@@ -43,7 +42,6 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
     // running the list of SubQuery objects in queryConditionList
     protected List<PlayerEntry> filteredPlayerEntriesList;
 
-    // TODO, update explanation
     // subQueryList contains all the conditions as they are added when the button buttonAddFilter is clicked
     // the contents of subQueryList will need to be cleared if the buttonClearFilters is clicked
     protected List<SubQuery> subQueryList = new ArrayList<>();
@@ -60,7 +58,6 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
     // radar chart being shown
     protected AbstractRadarChart radarChart;
 
-
     // starting the definition of buttons
     // buttonAddFilter will add a new query condition to queryConditionList when clicked
     // clicking this button implies calling the method addFilter(...)
@@ -70,7 +67,7 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
     protected final JButton buttonClearFilters = new JButton("Clear All Filters");
 
     // defining the combobox used to select the league type to which the filters (queryConditionList or list of SubQuery object) need to be applied
-    protected String[] leagueTypes = { League.ALL.getName(), League.EPL.getName(), League.LIGA.getName() };
+    protected String[] leagueTypes = {League.ALL.getName(), League.EPL.getName(), League.LIGA.getName()};
     protected JComboBox<String> comboLeagueTypes = new JComboBox<>(leagueTypes);
 
     // defining the comboboxes used to select player names, nation, player's position and team
@@ -78,13 +75,10 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
     // when they need to be applied
     protected ArrayList<String> playerNamesList = new ArrayList<>();
     protected JComboBox<String> comboPlayerNames = new JComboBox<>();
-
     protected ArrayList<String> nationList = new ArrayList<>();
     protected JComboBox<String> comboNations = new JComboBox<>();
-
     protected ArrayList<String> positionList = new ArrayList<>();
     protected JComboBox<String> comboPositions = new JComboBox<>();
-
     protected ArrayList<String> teamList = new ArrayList<>();
     protected JComboBox<String> comboTeams = new JComboBox<>();
 
@@ -109,18 +103,15 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
     protected JLabel nationSelectorLabel = new JLabel("Nation:", SwingConstants.LEFT);
     protected JLabel positionSelectorLabel = new JLabel("Position:", SwingConstants.LEFT);
     protected JLabel teamSelectorLabel = new JLabel("Team:", SwingConstants.LEFT);
-
     protected JLabel subQueryLabel = new JLabel("Filter by property:", SwingConstants.LEFT);
     protected JLabel operatorLabel = new JLabel("Operator:", SwingConstants.LEFT);
     protected JLabel operatorValueLabel = new JLabel("Value:", SwingConstants.LEFT);
     protected JLabel subQueryListLabel = new JLabel("List of filters (or subqueries):", SwingConstants.LEFT);
     protected JLabel radarChartCategoryLabel = new JLabel("Radar chart category:", SwingConstants.LEFT);
-
     // defining all the checkboxes to control what is shown in radar plot
     protected JCheckBox minCheckBox = new JCheckBox("Minimum");
     protected JCheckBox maxCheckBox = new JCheckBox("Maximum");
     protected JCheckBox averageCheckBox = new JCheckBox("Average");
-
 
     // defining the three JTextAreas that will need to be updated every time the buttons
     // buttonAddFilter and buttonClearFilters are clicked
@@ -140,7 +131,6 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
     protected String playerEntriesTitle = "PLAYER ENTRIES";
     protected String radarChartTitle = "RADAR CHART";
 
-
     // Constructor
     public AbstractPlayerDashboardPanel(AbstractPlayerCatalog playerCatalog) {
         Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -149,7 +139,6 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
         this.playerCatalog = playerCatalog;
         // by default the GUI starts showing all player entries for both leagues
         this.filteredPlayerEntriesList = playerCatalog.getPlayerEntriesList(League.ALL);
-
         subQueriesTextArea.setName("subQueries");
         comboQueryProperties.setName("playerProperties");
         value.setName("filterValue");
@@ -220,11 +209,9 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
         radarChartContainer.add(radarChartPanel, BorderLayout.CENTER);
         radarChartContainer.add(controlRadarChartContainer, BorderLayout.SOUTH);
 
-        TitledBorder tbRadarChart = BorderFactory.createTitledBorder(
-                blackline, radarChartTitle);
+        TitledBorder tbRadarChart = BorderFactory.createTitledBorder(blackline, radarChartTitle);
         tbRadarChart.setTitleJustification(TitledBorder.CENTER);
         radarChartContainer.setBorder(tbRadarChart);
-
 
         // Statistics panel
         JPanel statisticsPanel = new JPanel();
@@ -272,7 +259,6 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
      */
     public abstract void updateRadarChart();
 
-
     /**
      * @return the active SubQueries
      */
@@ -282,6 +268,7 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
 
     /**
      * getFilteredPlayerEntriesList method - getter of filtered player entries list
+     *
      * @return List of PlayerEntry objects after running filtering SubQueries
      */
     public List<PlayerEntry> getFilteredPlayerEntriesList() {
@@ -302,8 +289,8 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
      * - buttonAddFilter
      * - buttonClearFilters
      * - comboLeagueTypes, comboPlayerNames, comboNations, comboPositions, and comboTeams,
-     *              if you want the filteredPlayerEntriesTextArea to be updated
-     *              to show only the player entries specified by these comboboxes
+     * if you want the filteredPlayerEntriesTextArea to be updated
+     * to show only the player entries specified by these comboboxes
      * - comboRadarChartCategories, to update the properties that the radar chart should display
      */
     public abstract void addListeners();
@@ -313,11 +300,11 @@ public abstract class AbstractPlayerDashboardPanel extends JPanel {
      * 1- this method is called when the JButton buttonAddFilter is clicked
      * 2- adds a new filter (a SubQuery object) to subQueryList ArrayList
      * 3- updates the GUI results accordingly, i.e. updates the three JTextAreas as follows:
-     *    3a- subQueriesTextArea will show the new SubQuery
-     *    3b- statisticsTextArea will show the updated statistics for the results after applying this filter
-     *    3c- filteredPlayerEntriesTextArea will show the contents of filteredPlayerEntriesList (the results after applying this filter)
-     *    3d- the radar chart is updated to display the newly filtered player entries (Note: this can alternatively be done
-     *    in another method)
+     * 3a- subQueriesTextArea will show the new SubQuery
+     * 3b- statisticsTextArea will show the updated statistics for the results after applying this filter
+     * 3c- filteredPlayerEntriesTextArea will show the contents of filteredPlayerEntriesList (the results after applying this filter)
+     * 3d- the radar chart is updated to display the newly filtered player entries (Note: this can alternatively be done
+     * in another method)
      */
     public abstract void addFilter();
 

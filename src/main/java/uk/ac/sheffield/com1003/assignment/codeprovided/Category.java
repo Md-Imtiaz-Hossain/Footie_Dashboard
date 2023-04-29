@@ -6,11 +6,10 @@ import java.util.NoSuchElementException;
  * Provides a helper enum with constants representing which player properties map to each category.
  * These will be used by RadarChart.
  *
- * @version 1.0  06/04/2023
- *
  * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- *
+ * <p>
  * Copyright (c) University of Sheffield 2023
+ * @version 1.0  06/04/2023
  */
 public enum Category {
     GENERAL("general") {
@@ -56,12 +55,14 @@ public enum Category {
 
     private final String categoryName;
 
-    Category(String catName) { categoryName = catName; }
+    Category(String catName) {
+        categoryName = catName;
+    }
 
-    public String getName()
-    {
+    public String getName() {
         return categoryName;
     }
+
     public abstract PlayerProperty[] getProperties();
 
     /**
@@ -71,8 +72,7 @@ public enum Category {
      * @return the matching Category
      * @throws NoSuchElementException if the String does not match any Category
      */
-    public static Category getCategoryFromName(String name) throws NoSuchElementException
-    {
+    public static Category getCategoryFromName(String name) throws NoSuchElementException {
         for (Category cat : values()) {
             if (cat.getName().equals(name))
                 return cat;

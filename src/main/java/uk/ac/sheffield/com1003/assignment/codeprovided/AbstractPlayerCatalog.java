@@ -8,23 +8,21 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Abstract class designed to be extended. 
+ * Abstract class designed to be extended.
  * Provides basic reading functionalities of datasets with player entries and queries.
- *
- * @version 1.1 09/02/2023
  *
  * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
  * @author Ben Clegg
- *
+ * <p>
  * Copyright (c) University of Sheffield 2023
+ * @version 1.1 09/02/2023
  */
 public abstract class AbstractPlayerCatalog {
+    protected final Map<League, List<PlayerEntry>> playerEntriesMap;
 
-	protected final Map<League, List<PlayerEntry>> playerEntriesMap;
-
-	/**
-	 * Constructor - reads datasets with player catalogue (player entries
-	 * and initialises the playerEntriesMap Map
+    /**
+     * Constructor - reads datasets with player catalogue (player entries
+     * and initialises the playerEntriesMap Map
      */
     public AbstractPlayerCatalog(String eplFilename, String ligaFilename) {
 
@@ -40,8 +38,7 @@ public abstract class AbstractPlayerCatalog {
         updatePlayerCatalog();
     }
 
-    public int getNumberPlayerEntries(League league)
-    {
+    public int getNumberPlayerEntries(League league) {
         return playerEntriesMap.get(league).size();
     }
 
@@ -51,7 +48,7 @@ public abstract class AbstractPlayerCatalog {
      * should they occur.
      *
      * @param dataFile This will be the dataset providing data about the league
-     * @param league This is a League enum containing the league type
+     * @param league   This is a League enum containing the league type
      * @return List of PlayerEntry objects
      */
     public List<PlayerEntry> readDataFile(String dataFile, League league) throws IllegalArgumentException {
@@ -68,7 +65,7 @@ public abstract class AbstractPlayerCatalog {
                 try {
                     // The player entry ID is created by this reader; it is not provided in the original files
                     // The ID should _not_ be modified later
-                    int id = count;		
+                    int id = count;
                     PlayerEntry playerEntry = new PlayerEntry(id, league, parsePlayerEntryLine(line));
                     playerEntriesList.add(playerEntry);
                     count++;
@@ -97,7 +94,7 @@ public abstract class AbstractPlayerCatalog {
      * @param line the line to parse
      * @return a PlayerPropertyMap constructed from the parsed row, containing values for every property
      * @throws IllegalArgumentException if the line is malformed (i.e. does not include every property
-     * for a single player, or contains undefined properties)
+     *                                  for a single player, or contains undefined properties)
      */
     public abstract PlayerPropertyMap parsePlayerEntryLine(String line) throws IllegalArgumentException;
 
@@ -111,13 +108,13 @@ public abstract class AbstractPlayerCatalog {
     /**
      * Read the contents of filename and stores it.
      *
-     * @param league indicates which list of player entries to modify
+     * @param league   indicates which list of player entries to modify
      * @param filename the name of the .csv to read
      */
-    public void editPlayerCatalog(League league, String filename){
+    public void editPlayerCatalog(League league, String filename) {
         playerEntriesMap.put(league, new ArrayList<>(readDataFile(filename, league)));
     }
-    
+
     /**
      * Returns the list of player entries relevant to the specified league.
      *
@@ -132,20 +129,14 @@ public abstract class AbstractPlayerCatalog {
      * Returns the list of player entries after filtering by PlayerDetail.
      *
      * @param listPlayerEntries the list of player entries used as input for this filtering by PlayerDetail
-     * @param playerDetail the PlayerDetail to retrieve
-     * @param name the name of the PlayerDetail to retrieve
+     * @param playerDetail      the PlayerDetail to retrieve
+     * @param name              the name of the PlayerDetail to retrieve
      * @return List<PlayerEntry>, a </PlayerEntry> list with the relevant player entries
      */
-    public List<PlayerEntry> getPlayerEntriesList(List<PlayerEntry> listPlayerEntries,
-                                                  PlayerDetail playerDetail,
-                                                  String name) {
+    public List<PlayerEntry> getPlayerEntriesList(List<PlayerEntry> listPlayerEntries, PlayerDetail playerDetail, String name) {
         if (name.equals("")) return listPlayerEntries;
-
-        List<String> listPlayerNames =
-                listPlayerEntries.stream().map(PlayerEntry::getPlayerName).collect(Collectors.toList());
-        listPlayerEntries  = listPlayerEntries.stream()
-                .filter(w -> w.getDetail(playerDetail).equals(name)).collect(Collectors.toList());
-
+        List<String> listPlayerNames = listPlayerEntries.stream().map(PlayerEntry::getPlayerName).collect(Collectors.toList());
+        listPlayerEntries = listPlayerEntries.stream().filter(w -> w.getDetail(playerDetail).equals(name)).collect(Collectors.toList());
         return listPlayerEntries;
     }
 
@@ -168,16 +159,15 @@ public abstract class AbstractPlayerCatalog {
      */
     public int getNumberUniquePlayers(League league) {
         List<PlayerEntry> list = getPlayerEntriesList(league);
-        List<String> listPlayerNames =
-                list.stream().map(PlayerEntry::getPlayerName).distinct().collect(Collectors.toList());
+        List<String> listPlayerNames = list.stream().map(PlayerEntry::getPlayerName).distinct().collect(Collectors.toList());
         return listPlayerNames.size(); // listPlayerNames should never be null
-
     }
 
     /**
      * Get the minimum value of the given property for player entries in this league in this player catalog
+     *
      * @param playerProperty the property to evaluate
-     * @param league the League to use
+     * @param league         the League to use
      * @return the minimum value of the property
      */
     public double getMinimumValue(PlayerProperty playerProperty, League league) {
@@ -188,7 +178,7 @@ public abstract class AbstractPlayerCatalog {
      * Get the maximum value of the given property for player entries in this league in this player catalog.
      *
      * @param playerProperty the property to evaluate
-     * @param league the League to use
+     * @param league         the League to use
      * @return the maximum value of the property
      */
     public double getMaximumValue(PlayerProperty playerProperty, League league) {
@@ -199,7 +189,7 @@ public abstract class AbstractPlayerCatalog {
      * Get the mean value of the given property for player entries in this league in this player catalog.
      *
      * @param playerProperty the property to evaluate
-     * @param league the League to use
+     * @param league         the League to use
      * @return the mean measurement of the property
      */
     public double getMeanAverageValue(PlayerProperty playerProperty, League league) {
@@ -210,37 +200,34 @@ public abstract class AbstractPlayerCatalog {
      * Get the minimum value of the given property for the specified player entries.
      * Note: these player entries do not necessarily belong to the current catalog.
      *
-     * @param playerProperty the property to evaluate
+     * @param playerProperty  the property to evaluate
      * @param playerEntryList the list of player entries to check
      * @return the minimum value of the property present in the specified player entries
      * @throws NoSuchElementException if there are no minimum values for the property, because playerEntryList is invalid
      */
-    public abstract double getMinimumValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList)
-            throws NoSuchElementException;
+    public abstract double getMinimumValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList) throws NoSuchElementException;
 
     /**
      * Get the maximum value of the given property for the specified player entries.
      * Note: these player entries do not necessarily belong to the current catalog.
      *
-     * @param playerProperty the property to evaluate
+     * @param playerProperty  the property to evaluate
      * @param playerEntryList the player entries to check
      * @return the maximum value of the property present in the specified player entries
      * @throws NoSuchElementException if there are no maximum values for the property, because playerEntryList is invalid
      */
-    public abstract double getMaximumValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList)
-            throws NoSuchElementException;
+    public abstract double getMaximumValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList) throws NoSuchElementException;
 
     /**
      * Get the mean value of the given property for the specified player entries.
      * Note: these player entries do not necessarily belong to the current catalog.
      *
-     * @param playerProperty the property to evaluate
+     * @param playerProperty  the property to evaluate
      * @param playerEntryList the player entries to check
      * @return the mean value of the property present in the specified player entries
      * @throws NoSuchElementException if there are no maximum values for the property, because playerEntryList is invalid
      */
-    public abstract double getMeanAverageValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList)
-            throws NoSuchElementException;
+    public abstract double getMeanAverageValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList) throws NoSuchElementException;
 
     /**
      * Get the first 5 player entries in the given league.

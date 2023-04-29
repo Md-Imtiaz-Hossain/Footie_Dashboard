@@ -7,8 +7,7 @@ import java.util.*;
 /**
  * SKELETON IMPLEMENTATION
  */
-public class PlayerCatalog extends AbstractPlayerCatalog
-{
+public class PlayerCatalog extends AbstractPlayerCatalog {
     /**
      * Constructor
      */
@@ -17,44 +16,69 @@ public class PlayerCatalog extends AbstractPlayerCatalog
     }
 
     @Override
-    public PlayerPropertyMap parsePlayerEntryLine(String line) throws IllegalArgumentException
-    {
-        // TODO implement
-        return new PlayerPropertyMap();
+    public PlayerPropertyMap parsePlayerEntryLine(String line) throws IllegalArgumentException {
+        List<String> playerData = Arrays.asList(line.split(","));
+        PlayerPropertyMap playerPropertyMap = new PlayerPropertyMap();
+        Iterator<String> playerDataIter = playerData.iterator();
+
+        for (PlayerDetail detail : PlayerDetail.values()) {
+            if (!playerDataIter.hasNext()) throw new IllegalArgumentException("Too few columns");
+            playerPropertyMap.putDetail(detail, playerDataIter.next());
+        }
+        for (PlayerProperty property : PlayerProperty.values()) {
+            if (!playerDataIter.hasNext()) throw new IllegalArgumentException("Too few columns");
+            playerPropertyMap.put(property, Double.parseDouble(playerDataIter.next()));
+        }
+        return playerPropertyMap;
     }
 
     @Override
     public void updatePlayerCatalog() {
-        // TODO delete next line and implement
-        playerEntriesMap.put(League.ALL, new ArrayList<>());
+        List<PlayerEntry> epl = playerEntriesMap.get(League.EPL);
+        List<PlayerEntry> liga = playerEntriesMap.get(League.LIGA);
+        List<PlayerEntry> all = new ArrayList<>();
+        all.addAll(epl);
+        all.addAll(liga);
+        playerEntriesMap.put(League.ALL, all);
     }
 
     @Override
     public double getMinimumValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList)
             throws NoSuchElementException {
-        // TODO implement
-        return -1;
+        if (playerEntryList.size() < 1) return 0;
+        List<Double> propertyValues = new ArrayList<>();
+        for (PlayerEntry player : playerEntryList) {
+            propertyValues.add(player.getProperty(playerProperty));
+        }
+        return Collections.min(propertyValues);
     }
 
     @Override
-    public double getMaximumValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList)
-            throws NoSuchElementException {
-        // TODO implement
-        return -1;
+    public double getMaximumValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList) throws NoSuchElementException {
+        if (playerEntryList.size() < 1) return 0;
+        List<Double> propertyValues = new ArrayList<>();
+        for (PlayerEntry player : playerEntryList) {
+            propertyValues.add(player.getProperty(playerProperty));
+        }
+        return Collections.max(propertyValues);
     }
 
     @Override
-    public double getMeanAverageValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList)
-            throws NoSuchElementException {
-        // TODO implement
-        return -1;
+    public double getMeanAverageValue(PlayerProperty playerProperty, List<PlayerEntry> playerEntryList) throws NoSuchElementException {
+        if (playerEntryList.size() < 1) return 0;
+        List<Double> propertyValues = new ArrayList<>();
+        for (PlayerEntry player : playerEntryList) {
+            propertyValues.add(player.getProperty(playerProperty));
+        }
+        OptionalDouble average = propertyValues.stream().mapToDouble(num -> num).average();
+        if (average.isPresent()) return average.getAsDouble();
+        else return 0;
     }
 
     @Override
-    public List<PlayerEntry> getFirstFivePlayerEntries(League type)
-    {
-        // TODO implement
-        return new ArrayList<>();
+    public List<PlayerEntry> getFirstFivePlayerEntries(League type) {
+        List<PlayerEntry> playerEntriesList = getPlayerEntriesList(type);
+        return playerEntriesList.subList(0, 5);
     }
 
 }

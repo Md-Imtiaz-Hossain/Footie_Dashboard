@@ -12,15 +12,13 @@ import java.util.List;
  * Abstract class to parse Queries.
  * Provides functionality to read tokens from a query file
  *
- * @version 1.0 02/03/2023
- *
  * @author Ben Clegg
- *
+ * <p>
  * Copyright (c) University of Sheffield 2023
+ * @version 1.0 02/03/2023
  */
 @SuppressWarnings("unused")
-public abstract class AbstractQueryParser
-{
+public abstract class AbstractQueryParser {
     /**
      * Reads the queries file and splits each token in the queryFile into individual strings,
      * (i.e. splits by spaces) and stores them in a List for further processing by the readQueries method.
@@ -62,7 +60,7 @@ public abstract class AbstractQueryParser
      * @param queryTokens The List of tokenized Strings from the readQueryFile method
      * @return List of all Query objects
      * @throws IllegalArgumentException if the provided query tokens are invalid (e.g. non-numbers
-     * as boundary values, invalid operators, etc)
+     *                                  as boundary values, invalid operators, etc)
      */
     public abstract List<Query> readQueries(List<String> queryTokens) throws IllegalArgumentException;
 }

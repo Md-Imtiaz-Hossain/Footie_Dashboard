@@ -12,7 +12,6 @@ import javax.swing.*;
  * Copyright (c) University of Sheffield 2023
  */
 public class PlayerEntryDashboard extends JFrame {
-
 	public PlayerEntryDashboard(AbstractPlayerDashboardPanel panel) {
 		setTitle("Footie Dashboard");
 		add(panel);
