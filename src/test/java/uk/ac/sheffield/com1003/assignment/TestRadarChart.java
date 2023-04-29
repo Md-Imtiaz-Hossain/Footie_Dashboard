@@ -13,8 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestRadarChart
-{
+public class TestRadarChart {
     private static final PlayerCatalog CATALOG = new PlayerCatalog(
             TestCommon.EPL_FILE,
             TestCommon.LIGA_FILE
@@ -37,7 +36,6 @@ public class TestRadarChart
                 TestCommon.DUMMY_PLAYER_ENTRIES.get(0),
                 TestCommon.DUMMY_PLAYER_ENTRIES.get(0)
         ));
-
         assertEquals(1, radarChart.getRadarPlotAxesValues().size());
         assertEquals(3, radarChart.getFilteredPlayerEntries().size());
     }
