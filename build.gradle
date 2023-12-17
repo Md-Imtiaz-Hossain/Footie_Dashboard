@@ -23,5 +23,5 @@ test {
 }
 
 application {
-    mainClass = 'uk.ac.sheffield.com1003.assignment.FootieDashboard'
+    mainClass = 'sktech.com.iimtiaz.ui.assignment.FootieDashboard'
 }

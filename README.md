@@ -99,16 +99,16 @@ Usage: javac <options> <source files>
 and executing:
 
 ```shell
-javac src/main/java/uk/ac/sheffield/com1003/assignment/FootieDashboard.java
+javac src/main/java/sktech/ac/sheffield/com1003/assignment/FootieDashboard.java
 ```
 
 will lead to a number of missing dependency errors, e.g.:
 
 ```
-src/main/java/uk/ac/sheffield/com1003/assignment/FootieDashboard.java:8: error: package uk.ac.sheffield.com1003.assignment.codeprovided.gui does not exist
-import uk.ac.sheffield.com1003.assignment.codeprovided.gui.AbstractPlayerDashboardPanel;
+src/main/java/sktech/ac/sheffield/com1003/assignment/FootieDashboard.java:8: error: package sktech.com.iimtiaz.ui.assignment.codeprovided.gui does not exist
+import sktech.com.iimtiaz.ui.assignment.codeprovided.gui.AbstractPlayerDashboardPanel;
 
-src/main/java/uk/ac/sheffield/com1003/assignment/FootieDashboard.java:24: error: cannot find symbol
+src/main/java/sktech/ac/sheffield/com1003/assignment/FootieDashboard.java:24: error: cannot find symbol
         private final AbstractPlayerCatalog playerCatalog;
                       ^
   symbol:   class AbstractPlayerCatalog
