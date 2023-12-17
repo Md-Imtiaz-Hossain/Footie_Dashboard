@@ -1,5 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-8d59dc4de5201274e310e4c54b9627a8934c3b88527886e3b421487c677d23eb.svg)](https://classroom.github.com/a/0HM85svl)
-# COM1003 Assignment: A Footie Dashboard
+# A Footie Dashboard
 
 This is the source code of the COM1003 SEM 2 Assignment (2022-23).
 
@@ -144,3 +143,47 @@ where `<LATEST_COMMIT_ID>` can be extracted from your project repo log by execut
 ```shell
 git --no-pager log --decorate=short --pretty=medium
 ```
+# ----------------------------
+
+![Footie_assg_page-0001.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0001.jpg)
+
+![Footie_assg_page-0002.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0002.jpg)
+
+![Footie_assg_page-0003.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0003.jpg)
+
+![Footie_assg_page-0004.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0004.jpg)
+
+![Footie_assg_page-0005.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0005.jpg)
+
+![Footie_assg_page-0006.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0006.jpg)
+
+![Footie_assg_page-0007.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0007.jpg)
+
+![Footie_assg_page-0008.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0008.jpg)
+
+![Footie_assg_page-0009.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0009.jpg)
+
+![Footie_assg_page-0010.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0010.jpg)
+
+![Footie_assg_page-0011.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0011.jpg)
+
+![Footie_assg_page-0012.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0012.jpg)
+
+![Footie_assg_page-0013.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0013.jpg)
+
+![Footie_assg_page-0014.jpg](src%2Fmain%2Fresources%2Fquestion%2FFootie_assg_page-0014.jpg)
+
+
+# ----------------------------
+
+![img.png](src%2Fmain%2Fresources%2FSolutionImage%2Fimg.png)
+
+![img_1.png](src%2Fmain%2Fresources%2FSolutionImage%2Fimg_1.png)
+
+![img_2.png](src%2Fmain%2Fresources%2FSolutionImage%2Fimg_2.png)
+
+![img_3.png](src%2Fmain%2Fresources%2FSolutionImage%2Fimg_3.png)
+
+![img_4.png](src%2Fmain%2Fresources%2FSolutionImage%2Fimg_4.png)
+
+![img_5.png](src%2Fmain%2Fresources%2FSolutionImage%2Fimg_5.png)
