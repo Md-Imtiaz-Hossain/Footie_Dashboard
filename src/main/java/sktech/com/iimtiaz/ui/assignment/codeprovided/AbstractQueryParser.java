@@ -11,11 +11,6 @@ import java.util.List;
 /**
  * Abstract class to parse Queries.
  * Provides functionality to read tokens from a query file
- *
- * @author Ben Clegg
- * <p>
- * Copyright (c) University of Sheffield 2023
- * @version 1.0 02/03/2023
  */
 @SuppressWarnings("unused")
 public abstract class AbstractQueryParser {

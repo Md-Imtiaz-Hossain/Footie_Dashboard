@@ -4,13 +4,6 @@ import java.util.Iterator;
 
 /**
  * Class designed to be used to create objects from player entries.
- *
- * @version 1.1  09/02/2023
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- * @author Ben Clegg
- *
- * Copyright (c) University of Sheffield 2023
  */
 public class PlayerEntry {
     private final int id;

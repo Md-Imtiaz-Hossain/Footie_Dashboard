@@ -4,12 +4,6 @@ import java.util.NoSuchElementException;
 
 /**
  * Provides a helper enum with constants representing the details of a player entry.
- *
- * @version 1.0  06/04/2023
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- *
- * Copyright (c) University of Sheffield 2023
  */
 public enum PlayerDetail {
     PLAYER ("Player's name"),

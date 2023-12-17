@@ -3,11 +3,6 @@ package sktech.com.iimtiaz.ui.assignment.codeprovided.gui;
 /**
  * One of the axis of a radar chart.
  * See AbstractRadarChart for more details.
- *
- * @author Maria-Cruz Villa-Uriol
- * <p>
- * Copyright (c) University of Sheffield 2023
- * @version 1.0 02/03/2023
  */
 
 public class RadarAxisValues {

@@ -22,12 +22,6 @@ import java.util.stream.Collectors;
  * note at the end of this class.
  * <p>
  * Should be implemented as uk.ac.sheffield.assignment2021.gui.PlayerDashboardPanel
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- * @author Ben Clegg
- * <p>
- * Copyright (c) University of Sheffield 2023
- * @version 1.1 09/02/2023
  */
 
 // constructor

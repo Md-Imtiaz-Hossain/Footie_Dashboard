@@ -6,15 +6,6 @@ import javax.swing.*;
  * Abstract class for displaying a RadarChart.
  * Please pay attention to the note comment below the constructor.
  * The displayed radar chart should be updated whenever a radar chart is updated
- *
- * Should be implemented as uk.ac.sheffield.com1003.assignment.gui.RadarChartPanel
- *
- *
- * @version 1.0 02/03/2023
- *
- * @author Maria-Cruz Villa-Uriol
- *
- * Copyright (c) University of Sheffield 2023
  */
 public class AbstractRadarChartPanel extends JPanel {
 

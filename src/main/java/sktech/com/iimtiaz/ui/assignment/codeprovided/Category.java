@@ -5,11 +5,6 @@ import java.util.NoSuchElementException;
 /**
  * Provides a helper enum with constants representing which player properties map to each category.
  * These will be used by RadarChart.
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- * <p>
- * Copyright (c) University of Sheffield 2023
- * @version 1.0  06/04/2023
  */
 public enum Category {
     GENERAL("general") {

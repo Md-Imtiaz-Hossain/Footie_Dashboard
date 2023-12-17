@@ -7,10 +7,6 @@ import java.util.Set;
 /**
  * A simplified Map wrapper to be used by a PlayerEntry, storing the values for each of its properties.
  * This wrapper stores a HashMap rather than extending it to de-expose unneeded methods.
- * Copyright (c) University of Sheffield 2023
- *
- * @author Ben Clegg
- * @version 1.0 10/02/2023
  */
 public class PlayerPropertyMap {
 

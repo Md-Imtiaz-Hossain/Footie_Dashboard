@@ -4,12 +4,6 @@ import javax.swing.*;
 
 /**
  * Creates the GUI
- *
- * @version 1.1  09/02/2023
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- *
- * Copyright (c) University of Sheffield 2023
  */
 public class PlayerEntryDashboard extends JFrame {
 	public PlayerEntryDashboard(AbstractPlayerDashboardPanel panel) {

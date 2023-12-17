@@ -10,12 +10,6 @@ import java.util.stream.Collectors;
 /**
  * Abstract class designed to be extended.
  * Provides basic reading functionalities of datasets with player entries and queries.
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- * @author Ben Clegg
- * <p>
- * Copyright (c) University of Sheffield 2023
- * @version 1.1 09/02/2023
  */
 public abstract class AbstractPlayerCatalog {
     protected final Map<League, List<PlayerEntry>> playerEntriesMap;

@@ -4,11 +4,6 @@ import java.util.NoSuchElementException;
 
 /**
  * Provides a helper enum with constants representing the performance properties of a player entry.
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- * <p>
- * Copyright (c) University of Sheffield 2023
- * @version 1.0  06/04/2023
  */
 public enum PlayerProperty {
     AGE("Player's age"),

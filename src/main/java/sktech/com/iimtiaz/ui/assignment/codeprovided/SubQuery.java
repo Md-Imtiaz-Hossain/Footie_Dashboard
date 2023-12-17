@@ -4,12 +4,6 @@ import java.util.Arrays;
 
 /**
  * Class designed to create SubQuery objects which make up parts of an individual query.
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- * @author Ben Clegg
- * <p>
- * Copyright (c) University of Sheffield 2023
- * @version 1.1  09/02/2023
  */
 public class SubQuery {
     public static final String[] VALID_OPERATORS = {"<", "<=", "=", ">=", ">", "!="};

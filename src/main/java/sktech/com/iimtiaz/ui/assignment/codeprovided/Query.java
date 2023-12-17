@@ -4,11 +4,6 @@ import java.util.*;
 
 /**
  * Class designed to be used to create Query objects from the Query List.
- *
- * @author Maria-Cruz Villa-Uriol (m.villa-uriol@sheffield.ac.uk)
- * @author Ben Clegg
- * Copyright (c) University of Sheffield 2023
- * @version 1.1  09/02/2023
  */
 public class Query {
     final List<SubQuery> subQueryList;

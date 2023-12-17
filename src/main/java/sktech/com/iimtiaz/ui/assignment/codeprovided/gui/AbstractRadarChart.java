@@ -11,11 +11,6 @@ import java.util.*;
  * The radar chart will be drawn, see AbstractRadarChartPanel
  * <p>
  * Should be implemented uk.ac.sheffield.com1003.assignment.gui.RadarChart
- *
- * @author Maria-Cruz Villa-Uriol
- * <p>
- * Copyright (c) University of Sheffield 2023
- * @version 1.0 02/03/2023
  */
 public abstract class AbstractRadarChart {
     protected Map<PlayerProperty, RadarAxisValues> radarAxesValues;
